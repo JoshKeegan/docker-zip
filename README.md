@@ -13,3 +13,6 @@ Note: only people authorised to publish to this repo on Docker Hub can publish t
 ```bash
 make publish
 ```
+
+## License
+[MIT](LICENSE)
