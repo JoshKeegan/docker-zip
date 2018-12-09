@@ -1,5 +1,5 @@
 # dotnet-build
-A docker image that adds the following additional programs:
+A docker image of the dotnet SDK that adds the following additional programs:
  - make
 
 ## Usage
