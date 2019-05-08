@@ -1,6 +1,6 @@
 # EOL has comment to prevent erroneous whitespace in variables
 IMAGE = dotnet-build#
-VERSION = 2.2.100.0#
+VERSION = 2.2.203#
 DOCKER_HUB_USERNAME = joshkeegan#
 
 IMAGE_URL = $(DOCKER_HUB_USERNAME)/$(IMAGE)#
