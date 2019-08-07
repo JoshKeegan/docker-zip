@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2.203-stretch
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2.204-stretch
 
 RUN apt-get update && \
 	apt-get install -y make && \

@@ -30,7 +30,7 @@ get-version-number:
 # Args:
 #	- crUsername
 #	- crPassword
-publish: tag
+publish: docker-login tag
 	docker push $(IMAGE_URL):$(cat artefacts/version)
 	docker push $(IMAGE_URL):latest
 
