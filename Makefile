@@ -24,8 +24,10 @@ get-version-number:
 			jess/dockfmt:v0.3.3 \
 			base \
 			/app/Dockerfile \
-		| awk 'NR > 1 { split($$1, a, ":"); split(a[2], b, "-"); print b[1] }' \
+		| awk 'NR > 1 { split($$1, a, ":"); split(a[2], b, "-"); printf "%s", b[1] }' \
 		> artefacts/version
+
+	echo `cat artefacts/version`
 
 # Args:
 #	- crUsername
