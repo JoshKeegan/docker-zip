@@ -6,6 +6,7 @@ build:
   tags:
     - docker
   image: docker:stable
+  stage: build
   services:
     - docker:dind
   only:
@@ -20,6 +21,7 @@ publish:
   tags:
     - docker
   image: docker:stable
+  stage: publish
   services:
     - docker:dind
   only:
