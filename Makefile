@@ -11,7 +11,7 @@ build:
 	docker build --no-cache --pull -t $(IMAGE_URL):dev .
 
 tag: clean build get-version-number
-	docker tag $(IMAGE_URL):dev $(IMAGE_URL):$(cat artefacts/version)
+	docker tag $(IMAGE_URL):dev $(IMAGE_URL):`cat artefacts/version`
 	docker tag $(IMAGE_URL):dev $(IMAGE_URL):latest
 
 get-version-number:
