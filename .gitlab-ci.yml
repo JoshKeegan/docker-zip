@@ -5,7 +5,7 @@ stages:
 build:
   tags:
     - docker
-  image: docker:stable
+  image: docker:19.03.5-dind
   stage: build
   services:
     - docker:dind
@@ -20,7 +20,7 @@ build:
 publish:
   tags:
     - docker
-  image: docker:stable
+  image: docker:19.03.5-dind
   stage: publish
   services:
     - docker:dind
