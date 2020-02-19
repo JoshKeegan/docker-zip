@@ -5,10 +5,10 @@ stages:
 build:
   tags:
     - docker
-  image: docker:19.03.5-dind
+  image: docker:stable
   stage: build
   services:
-    - docker:dind
+    - docker:19.03.5-dind
   only:
     - branches
   except:
@@ -20,10 +20,10 @@ build:
 publish:
   tags:
     - docker
-  image: docker:19.03.5-dind
+  image: docker:stable
   stage: publish
   services:
-    - docker:dind
+    - docker:19.03.5-dind
   only:
     - master
   before_script:
