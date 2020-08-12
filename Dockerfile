@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1.302-buster
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1.401-buster
 
 RUN apt-get update && \
 	apt-get install -y make && \
