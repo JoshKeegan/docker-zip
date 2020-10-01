@@ -1,5 +1,5 @@
 # EOL has comment to prevent erroneous whitespace in variables
-IMAGE = dotnet-build#
+IMAGE = zip#
 DOCKER_HUB_USERNAME = joshkeegan#
 IMAGE_URL = $(DOCKER_HUB_USERNAME)/$(IMAGE)#
 
@@ -16,7 +16,7 @@ tag: clean build get-version-number
 
 get-version-number:
 # Get the version number from the version of the base image
-#	e.g. a base of mcr.microsoft.com/dotnet/core/sdk:2.2.203-stretch would have version number 2.2.203
+#	e.g. a base of alpine:3.12.0 would have version number 3.12.0
 	export MSYS_NO_PATHCONV=1 && \
 		docker run \
 			--rm \

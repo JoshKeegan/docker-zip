@@ -1,6 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1.402-buster
+FROM alpine:3.12.0
 
-RUN apt-get update && \
-	apt-get install -y make && \
-	# Clean up apt lists & temp dir to not bloat the layer
-	rm -rf /var/lib/apt/lists/* /tmp/*
+# Install software
+RUN apk add --no-cache zip unzip
