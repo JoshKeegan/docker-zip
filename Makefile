@@ -8,6 +8,13 @@ clean:
 	rm -r artefacts || true
 	mkdir artefacts
 
+.PHONY: format
+format:
+	@docker run --rm \
+		-v $(PWD):/check \
+		mstruebing/editorconfig-checker && \
+	echo "Editorconfig styles followed"
+
 # Args
 #	- params: optional. Additional params to pass to buildx
 .PHONY: build

@@ -25,6 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
+      - name: Format
+        run: make format
+      
       - name: Build
         run: make build
       
