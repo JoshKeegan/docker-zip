@@ -30,7 +30,5 @@ publish:
     - apk add --no-cache make
   script: 
     - |
-      make \
-        crUsername="$CR_USERNAME" \
-        crPassword="$CR_PASSWORD" \
-        publish
+      docker login -u $CR_USERNAME -p $CR_PASSWORD
+      make tag publish
