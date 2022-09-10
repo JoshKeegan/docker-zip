@@ -6,5 +6,10 @@ A docker image with the zip and unzip commands
 ## Usage
 Use like any other docker image. It's URL is `joshkeegan/zip:latest`. See [Docker Hub](https://hub.docker.com/r/joshkeegan/zip/tags/) for specific version tags.
 
+## Contributing
+ - Install dependencies: `make`, `docker`, `docker buildx` (included with docker desktop)
+ - Create a buildx builder instance for cross-platform builds with `docker buildx create --use`
+ - Run `make build`
+
 ## License
 [MIT](LICENSE)

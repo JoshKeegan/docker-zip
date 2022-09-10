@@ -3,17 +3,24 @@ IMAGE = zip#
 DOCKER_HUB_USERNAME = joshkeegan#
 IMAGE_URL = $(DOCKER_HUB_USERNAME)/$(IMAGE)#
 
+.PHONY: clean
 clean:
 	rm -r artefacts || true
 	mkdir artefacts
 
-build:
-	docker build --no-cache --pull -t $(IMAGE_URL):dev .
+# Args
+#	- params: optional. Additional params to pass to buildx
+.PHONY: build
+build: clean get-version-number
+	docker buildx build \
+		--platform linux/amd64,linux/arm/v7,linux/arm64 \
+		--no-cache \
+		--pull $(params) \
+		-t $(IMAGE_URL):`cat artefacts/version`\
+		-t $(IMAGE_URL):latest \
+		.
 
-tag: clean build get-version-number
-	docker tag $(IMAGE_URL):dev $(IMAGE_URL):`cat artefacts/version`
-	docker tag $(IMAGE_URL):dev $(IMAGE_URL):latest
-
+.PHONY: get-version-number
 get-version-number:
 # Get the version number from the version of the base image
 #	e.g. a base of alpine:3.12.0 would have version number 3.12.0
@@ -29,6 +36,6 @@ get-version-number:
 
 	echo `cat artefacts/version`
 
-publish:
-	docker push $(IMAGE_URL):`cat artefacts/version`
-	docker push $(IMAGE_URL):latest
+.PHONY: publish
+publish: params=--push
+publish: build
