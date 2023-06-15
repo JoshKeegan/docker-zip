@@ -1,4 +1,4 @@
-FROM alpine:3.18.0
+FROM alpine:3.18.2
 
 # Install software
 RUN apk add --no-cache zip unzip
